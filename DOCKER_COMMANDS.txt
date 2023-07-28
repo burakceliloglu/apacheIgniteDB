@@ -1,0 +1,26 @@
+/opt/ignite # ls
+
+/opt/ignite # cd apache-ignite
+/opt/ignite/apache-ignite # ls
+
+/opt/ignite/apache-ignite # cd bin
+/opt/ignite/apache-ignite/bin # ls
+
+/opt/ignite/apache-ignite/bin # ./sqlline.sh -u jdbc:ignite:thin://127.0.0.1/
+
+0: jdbc:ignite:thin://127.0.0.1/> CREATE TABLE SUBSCRIBER(
+. . . . . . . . . . . . . . . .)> SUBSC_ID INTEGER PRIMARY KEY,
+. . . . . . . . . . . . . . . .)> SUBSC_NAME VARCHAR(100),
+. . . . . . . . . . . . . . . .)> SUBSC_SURNAME VARCHAR(100),
+. . . . . . . . . . . . . . . .)> TARIFF_ID INTEGER,
+. . . . . . . . . . . . . . . .)> START_DATE TIMESTAMP);
+
+0: jdbc:ignite:thin://127.0.0.1/> INSERT INTO SUBSCRIBER(SUBSC_ID,SUBSC_NAME,SUBSC_SURNAME,TARIFF_ID) VALUES (1,'Burak','Celiloğlu',123);
+
+0: jdbc:ignite:thin://127.0.0.1/> SELECT * FROM SUBSCRIBER;
+
++----------+------------+---------------+-----------+------------+
+| SUBSC_ID | SUBSC_NAME | SUBSC_SURNAME | TARIFF_ID | START_DATE |
++----------+------------+---------------+-----------+------------+
+| 1        | Burak      | Celiloğlu     | 123       | null       |
++----------+------------+---------------+-----------+------------+
